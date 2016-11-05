@@ -20,7 +20,7 @@ public class UnitAttack : MonoBehaviour {
 
 
     void Update() {
-        if (unitControl.IsDead()) {
+        if (unitControl.IsDead() || unitControl.IsAttacking()) {
             return;
         }
         if (cooldown > 0) {

@@ -18,7 +18,7 @@ public class UnitMover : MonoBehaviour {
 
 
     void Update() {
-        if (unitControl.IsDead() || unitControl.IsStunned()) {
+        if (unitControl.IsDead() || unitControl.IsStunned() || unitControl.IsAttacking()) {
             return;
         }
 

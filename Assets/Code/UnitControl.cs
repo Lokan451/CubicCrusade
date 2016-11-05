@@ -9,6 +9,7 @@ public class UnitControl : MonoBehaviour {
 
     bool dead;
     float knockBackTimer = 0;
+    bool isAttacking;
 
     Transform torso;
     Transform rightHand;
@@ -227,6 +228,14 @@ public class UnitControl : MonoBehaviour {
 
     public UnitControl GetCurrentEnemy() {
         return currentEnemy;
+    }
+
+    public bool IsAttacking() {
+        return isAttacking;
+    }
+
+    public void SetAttackState(bool setting) {
+        isAttacking = setting;
     }
 
     private void SetTeamColor() {
