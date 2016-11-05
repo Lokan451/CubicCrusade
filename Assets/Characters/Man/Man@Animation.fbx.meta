@@ -1,0 +1,602 @@
+fileFormatVersion: 2
+guid: 7e31b97ad9d20a54baba20df0cc5083d
+timeCreated: 1474827040
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Man:Camera
+    100002: Man:Head
+    100004: Man:Hips
+    100006: Man:LeftLowerArm
+    100008: Man:LeftLowerLeg
+    100010: Man:LeftUpperArm
+    100012: Man:LeftUpperLeg
+    100014: Man:RightLowerArm
+    100016: Man:RightLowerLeg
+    100018: Man:RightUpperArm
+    100020: Man:RightUpperLeg
+    100022: Man:Torso
+    100024: //RootNode
+    100026: Man:Attach_Back
+    100028: Man:Attach_LeftHand
+    100030: Man:Attach_RightHand
+    100032: Man:Attach_Shield
+    100034: Weapons:Weapons:ShortSword
+    400000: Man:Camera
+    400002: Man:Head
+    400004: Man:Hips
+    400006: Man:LeftLowerArm
+    400008: Man:LeftLowerLeg
+    400010: Man:LeftUpperArm
+    400012: Man:LeftUpperLeg
+    400014: Man:RightLowerArm
+    400016: Man:RightLowerLeg
+    400018: Man:RightUpperArm
+    400020: Man:RightUpperLeg
+    400022: Man:Torso
+    400024: //RootNode
+    400026: Man:Attach_Back
+    400028: Man:Attach_LeftHand
+    400030: Man:Attach_RightHand
+    400032: Man:Attach_Shield
+    400034: Weapons:Weapons:ShortSword
+    2300000: Man:Head
+    2300002: Man:Hips
+    2300004: Man:LeftLowerArm
+    2300006: Man:LeftLowerLeg
+    2300008: Man:LeftUpperArm
+    2300010: Man:LeftUpperLeg
+    2300012: Man:RightLowerArm
+    2300014: Man:RightLowerLeg
+    2300016: Man:RightUpperArm
+    2300018: Man:RightUpperLeg
+    2300020: Man:Torso
+    2300022: //RootNode
+    2300024: Weapons:Weapons:ShortSword
+    3300000: Man:Head
+    3300002: Man:Hips
+    3300004: Man:LeftLowerArm
+    3300006: Man:LeftLowerLeg
+    3300008: Man:LeftUpperArm
+    3300010: Man:LeftUpperLeg
+    3300012: Man:RightLowerArm
+    3300014: Man:RightLowerLeg
+    3300016: Man:RightUpperArm
+    3300018: Man:RightUpperLeg
+    3300020: Man:Torso
+    3300022: //RootNode
+    3300024: Weapons:Weapons:ShortSword
+    4300000: Man:Hips
+    4300002: Man:LeftUpperLeg
+    4300004: Man:LeftLowerLeg
+    4300006: Man:RightUpperLeg
+    4300008: Man:RightLowerLeg
+    4300010: Man:Torso
+    4300012: Man:RightUpperArm
+    4300014: Man:RightLowerArm
+    4300016: Man:LeftUpperArm
+    4300018: Man:LeftLowerArm
+    4300020: Man:Head
+    4300022: Weapons:Weapons:ShortSword
+    7400000: Run
+    7400002: Idle
+    7400004: Attack
+    7400006: Defend
+    7400008: Thrust
+    7400010: ShootRifle
+    7400012: ShootBow
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Run
+      takeName: Run
+      firstFrame: 1
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Man:Hips
+        weight: 1
+      - path: Man:Hips/Man:LeftUpperLeg
+        weight: 1
+      - path: Man:Hips/Man:LeftUpperLeg/Man:LeftLowerLeg
+        weight: 1
+      - path: Man:Hips/Man:RightUpperLeg
+        weight: 1
+      - path: Man:Hips/Man:RightUpperLeg/Man:RightLowerLeg
+        weight: 1
+      - path: Man:Hips/Man:Torso
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:Attach_Back
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:Head
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm/Man:Attach_LeftHand
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm/Man:Attach_Shield
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm/Man:Attach_RightHand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Idle
+      takeName: Idle
+      firstFrame: 30
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Man:Hips
+        weight: 1
+      - path: Man:Hips/Man:LeftUpperLeg
+        weight: 1
+      - path: Man:Hips/Man:LeftUpperLeg/Man:LeftLowerLeg
+        weight: 1
+      - path: Man:Hips/Man:RightUpperLeg
+        weight: 1
+      - path: Man:Hips/Man:RightUpperLeg/Man:RightLowerLeg
+        weight: 1
+      - path: Man:Hips/Man:Torso
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:Attach_Back
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:Head
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm/Man:Attach_LeftHand
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm/Man:Attach_Shield
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm/Man:Attach_RightHand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 30
+    - serializedVersion: 16
+      name: Attack
+      takeName: Attack
+      firstFrame: 100
+      lastFrame: 130
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.56595725
+        functionName: FinishAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Man:Hips
+        weight: 1
+      - path: Man:Hips/Man:LeftUpperLeg
+        weight: 1
+      - path: Man:Hips/Man:LeftUpperLeg/Man:LeftLowerLeg
+        weight: 1
+      - path: Man:Hips/Man:RightUpperLeg
+        weight: 1
+      - path: Man:Hips/Man:RightUpperLeg/Man:RightLowerLeg
+        weight: 1
+      - path: Man:Hips/Man:Torso
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:Attach_Back
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:Head
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm/Man:Attach_LeftHand
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm/Man:Attach_Shield
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm/Man:Attach_RightHand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 99.84
+    - serializedVersion: 16
+      name: Defend
+      takeName: Defend
+      firstFrame: 140
+      lastFrame: 160
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Man:Hips
+        weight: 1
+      - path: Man:Hips/Man:LeftUpperLeg
+        weight: 1
+      - path: Man:Hips/Man:LeftUpperLeg/Man:LeftLowerLeg
+        weight: 1
+      - path: Man:Hips/Man:RightUpperLeg
+        weight: 1
+      - path: Man:Hips/Man:RightUpperLeg/Man:RightLowerLeg
+        weight: 1
+      - path: Man:Hips/Man:Torso
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:Attach_Back
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:Head
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm/Man:Attach_LeftHand
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm/Man:Attach_Shield
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm/Man:Attach_RightHand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Thrust
+      takeName: Thrust
+      firstFrame: 170
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.31914875
+        functionName: FinishAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Man:Hips
+        weight: 1
+      - path: Man:Hips/Man:LeftUpperLeg
+        weight: 1
+      - path: Man:Hips/Man:LeftUpperLeg/Man:LeftLowerLeg
+        weight: 1
+      - path: Man:Hips/Man:RightUpperLeg
+        weight: 1
+      - path: Man:Hips/Man:RightUpperLeg/Man:RightLowerLeg
+        weight: 1
+      - path: Man:Hips/Man:Torso
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:Attach_Back
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:Head
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm/Man:Attach_LeftHand
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm/Man:Attach_Shield
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm/Man:Attach_RightHand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 169.92
+    - serializedVersion: 16
+      name: ShootRifle
+      takeName: ShootRifle
+      firstFrame: 250
+      lastFrame: 280
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.48101273
+        functionName: FinishAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Man:Hips
+        weight: 1
+      - path: Man:Hips/Man:LeftUpperLeg
+        weight: 1
+      - path: Man:Hips/Man:LeftUpperLeg/Man:LeftLowerLeg
+        weight: 1
+      - path: Man:Hips/Man:RightUpperLeg
+        weight: 1
+      - path: Man:Hips/Man:RightUpperLeg/Man:RightLowerLeg
+        weight: 1
+      - path: Man:Hips/Man:Torso
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:Attach_Back
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:Head
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm/Man:Attach_LeftHand
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm/Man:Attach_Shield
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm/Man:Attach_RightHand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 249.84
+    - serializedVersion: 16
+      name: ShootBow
+      takeName: ShootBow
+      firstFrame: 210
+      lastFrame: 240
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.6704544
+        functionName: FinishAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Man:Hips
+        weight: 1
+      - path: Man:Hips/Man:LeftUpperLeg
+        weight: 1
+      - path: Man:Hips/Man:LeftUpperLeg/Man:LeftLowerLeg
+        weight: 1
+      - path: Man:Hips/Man:RightUpperLeg
+        weight: 1
+      - path: Man:Hips/Man:RightUpperLeg/Man:RightLowerLeg
+        weight: 1
+      - path: Man:Hips/Man:Torso
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:Attach_Back
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:Head
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm/Man:Attach_LeftHand
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm/Man:Attach_Shield
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm
+        weight: 1
+      - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm/Man:Attach_RightHand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 240
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

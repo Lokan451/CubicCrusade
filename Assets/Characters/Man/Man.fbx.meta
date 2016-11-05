@@ -1,0 +1,148 @@
+fileFormatVersion: 2
+guid: 005e78f8780353e498d6440e591ee72d
+timeCreated: 1474827038
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Man:Head
+    100004: Man:LeftLowerArm
+    100006: Man:LeftLowerLeg
+    100008: Man:LeftUpperArm
+    100010: Man:LeftUpperLeg
+    100012: Man:RightLowerArm
+    100014: Man:RightLowerLeg
+    100016: Man:RightUpperArm
+    100018: Man:RightUpperLeg
+    100020: Man:Torso
+    100022: Man:Hips
+    100024: Man:Attach_Back
+    100026: Man:Attach_LeftHand
+    100028: Man:Attach_RightHand
+    100030: Man:Attach_Shield
+    100032: Weapons:Weapons:ShortSword
+    400000: //RootNode
+    400002: Man:Head
+    400004: Man:LeftLowerArm
+    400006: Man:LeftLowerLeg
+    400008: Man:LeftUpperArm
+    400010: Man:LeftUpperLeg
+    400012: Man:RightLowerArm
+    400014: Man:RightLowerLeg
+    400016: Man:RightUpperArm
+    400018: Man:RightUpperLeg
+    400020: Man:Torso
+    400022: Man:Hips
+    400024: Man:Attach_Back
+    400026: Man:Attach_LeftHand
+    400028: Man:Attach_RightHand
+    400030: Man:Attach_Shield
+    400032: Weapons:Weapons:ShortSword
+    2300000: //RootNode
+    2300002: Man:Head
+    2300004: Man:LeftLowerArm
+    2300006: Man:LeftLowerLeg
+    2300008: Man:LeftUpperArm
+    2300010: Man:LeftUpperLeg
+    2300012: Man:RightLowerArm
+    2300014: Man:RightLowerLeg
+    2300016: Man:RightUpperArm
+    2300018: Man:RightUpperLeg
+    2300020: Man:Torso
+    2300022: Man:Hips
+    2300024: Weapons:Weapons:ShortSword
+    3300000: //RootNode
+    3300002: Man:Head
+    3300004: Man:LeftLowerArm
+    3300006: Man:LeftLowerLeg
+    3300008: Man:LeftUpperArm
+    3300010: Man:LeftUpperLeg
+    3300012: Man:RightLowerArm
+    3300014: Man:RightLowerLeg
+    3300016: Man:RightUpperArm
+    3300018: Man:RightUpperLeg
+    3300020: Man:Torso
+    3300022: Man:Hips
+    3300024: Weapons:Weapons:ShortSword
+    4300000: Man:Hips
+    4300002: Man:LeftUpperLeg
+    4300004: Man:LeftLowerLeg
+    4300006: Man:RightUpperLeg
+    4300008: Man:RightLowerLeg
+    4300010: Man:Torso
+    4300012: Man:RightUpperArm
+    4300014: Man:RightLowerArm
+    4300016: Man:LeftUpperArm
+    4300018: Man:LeftLowerArm
+    4300020: Man:Head
+    4300022: Weapons:Weapons:ShortSword
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths:
+    - Man:Hips/Man:Torso/Man:Attach_Back
+    - Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm/Man:Attach_LeftHand
+    - Man:Hips/Man:Torso/Man:LeftUpperArm/Man:LeftLowerArm/Man:Attach_Shield
+    - Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm/Man:Attach_RightHand
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,130 @@
+fileFormatVersion: 2
+guid: 74a6ae140493da1408e7706f0bdedcf7
+timeCreated: 1474850648
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: pCube1
+    100002: pCube2
+    100004: RoundShield
+    100006: ShortSword
+    100008: TowerShield
+    100010: transform1
+    100012: transform2
+    100014: //RootNode
+    100016: Weapons:ShortSword
+    100018: Weapons:ShortSword1
+    100020: Weapons:ShortSword2
+    100022: Axe
+    100024: LongSword
+    100026: Spear
+    400000: pCube1
+    400002: pCube2
+    400004: RoundShield
+    400006: ShortSword
+    400008: TowerShield
+    400010: transform1
+    400012: transform2
+    400014: //RootNode
+    400016: Weapons:ShortSword
+    400018: Weapons:ShortSword1
+    400020: Weapons:ShortSword2
+    400022: Axe
+    400024: LongSword
+    400026: Spear
+    2300000: pCube2
+    2300002: RoundShield
+    2300004: TowerShield
+    2300006: Weapons:ShortSword
+    2300008: Weapons:ShortSword1
+    2300010: Weapons:ShortSword2
+    2300012: Axe
+    2300014: LongSword
+    2300016: ShortSword
+    2300018: Spear
+    3300000: pCube2
+    3300002: RoundShield
+    3300004: TowerShield
+    3300006: Weapons:ShortSword
+    3300008: Weapons:ShortSword1
+    3300010: Weapons:ShortSword2
+    3300012: Axe
+    3300014: LongSword
+    3300016: ShortSword
+    3300018: Spear
+    4300000: RoundShield
+    4300002: Weapons:ShortSword1
+    4300004: Weapons:ShortSword
+    4300006: TowerShield
+    4300008: Weapons:ShortSword2
+    4300010: pCube2
+    4300012: ShortSword
+    4300014: LongSword
+    4300016: Spear
+    4300018: Axe
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
