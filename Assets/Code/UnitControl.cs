@@ -135,7 +135,7 @@ public class UnitControl : MonoBehaviour {
 
     void DetachPart(Transform part) {
         part.SetParent(null);
-        if (!GetComponent<Collider>())
+        if (!part.GetComponent<Collider>())
             part.gameObject.AddComponent<BoxCollider>();
         
         Rigidbody partRB;
