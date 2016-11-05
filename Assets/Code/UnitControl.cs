@@ -22,7 +22,7 @@ public class UnitControl : MonoBehaviour {
         Rigidbody rb = gameObject.AddComponent<Rigidbody>();
         rb.mass = 10;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
-       // SetTeamColor();
+        SetTeamColor();
         ragdollControl = GetComponent<RagdollConfig>().Init();
         torso = transform.Find("Man:Hips/Man:Torso");
         rightHand = torso.Find("Man:RightUpperArm/Man:RightLowerArm/Man:Attach_RightHand");
@@ -127,8 +127,6 @@ public class UnitControl : MonoBehaviour {
 
     void BreakApart(Transform parent) {
         Transform[] parts = parent.GetComponentsInChildren<Transform>();
-        Rigidbody partRB;
-        Vector3 partForce;
         foreach (Transform part in parts) {
             DetachPart(part);
         }       
@@ -232,13 +230,14 @@ public class UnitControl : MonoBehaviour {
     }
 
     private void SetTeamColor() {
-        Transform body = transform.Find("Man:Hips/Man:Body_Geo");
-        if (gameObject.tag.Equals("RedTeam")) {
-            body.GetComponent<Renderer>().material = redTeamMat;
-        } else {
-            body.GetComponent<Renderer>().material = blueTeamMat;
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+
+        foreach(Renderer item in renderers) {
+            if (gameObject.tag.Equals("RedTeam")) {
+                item.material = redTeamMat;
+            } else {
+                item.material = blueTeamMat;
+            }           
         }
     }
-
-
 }
