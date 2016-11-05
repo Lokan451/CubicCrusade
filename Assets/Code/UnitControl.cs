@@ -81,7 +81,7 @@ public class UnitControl : MonoBehaviour {
     
     public void Die(bool explode) {
         GetComponent<Collider>().enabled = false;
-        if (Random.value < 1.01f || explode) {
+        if (Random.value < 0.1f || explode) {
             Explode();
         } else {
             Collapse();
