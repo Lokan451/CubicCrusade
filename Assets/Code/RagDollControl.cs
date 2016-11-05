@@ -137,6 +137,7 @@ public class RagDollControl : MonoBehaviour {
 		rootRigidbody.mass = 3.125f;
 		rootRigidbody.useGravity = false;
 		rootRigidbody.isKinematic = true;
+        rootRigidbody.drag = 2f;
         rootRigidbody.angularDrag = 5f;
 
 
@@ -447,6 +448,10 @@ public class RagDollControl : MonoBehaviour {
         enableColliders();
 
         GetComponent<Animator> ().enabled = false;
+        Rigidbody mainRB = GetComponent<Rigidbody>();
+        mainRB.isKinematic = true;
+        mainRB.useGravity = false;
+
 		Rigidbody[] rigidbodies = root.GetComponentsInChildren<Rigidbody>();
 		foreach (Rigidbody currentRigidbody in rigidbodies) {
 			currentRigidbody.useGravity = true;
@@ -456,13 +461,17 @@ public class RagDollControl : MonoBehaviour {
 	}
 	
 	public void disableRagDoll() {
+
+
 		Rigidbody[] rigidbodies = root.GetComponentsInChildren<Rigidbody>();
 		foreach (Rigidbody currentRigidbody in rigidbodies) {
 			currentRigidbody.useGravity = false;
 			currentRigidbody.isKinematic = true;		
 		}
         GetComponent<Animator>().enabled = true;
-
+        Rigidbody mainRB = GetComponent<Rigidbody>();
+        mainRB.isKinematic = false;
+        mainRB.useGravity = true;
     }
 
     public void disableColliders() {

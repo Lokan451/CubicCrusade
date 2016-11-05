@@ -18,8 +18,8 @@ public class RagdollConfig : MonoBehaviour {
 		setUpData.rootTransform = transform.Find("Man:Hips");
 		if (!setUpData.rootTransform) Debug.Log ("Can't find root on " + transform.name);
 
-		setUpData.root.collision.center = new Vector3(0.0f, 0.0f, 0.0f);
-		setUpData.root.collision.size = new Vector3(0.4f, 0.32f, 0.3f);
+		setUpData.root.collision.center = new Vector3(0.0f, 0.1f, 0.0f);
+		setUpData.root.collision.size = new Vector3(0.4f, 0.15f, 0.3f);
 		
 		setUpData.leftHip.collision.center = new Vector3(0.000f, -0.20f, 0.000f);
 		setUpData.leftHip.collision.radius = 0.08f;

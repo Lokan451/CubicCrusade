@@ -22,7 +22,7 @@ public class UnitControl : MonoBehaviour {
         Rigidbody rb = gameObject.AddComponent<Rigidbody>();
         rb.mass = 10;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
-        SetTeamColor();
+       // SetTeamColor();
         ragdollControl = GetComponent<RagdollConfig>().Init();
         torso = transform.Find("Man:Hips/Man:Torso");
         rightHand = torso.Find("Man:RightUpperArm/Man:RightLowerArm/Man:Attach_RightHand");
@@ -31,6 +31,11 @@ public class UnitControl : MonoBehaviour {
 
 
     void Update () {
+
+        if (IsDead()) {
+            return;
+        }
+
         if (currentEnemy && currentEnemy.IsDead()) {
             currentEnemy = null;
         }	
@@ -74,35 +79,26 @@ public class UnitControl : MonoBehaviour {
     }
     
     public void Die(bool explode) {
-       
         GetComponent<Collider>().enabled = false;
-        if (Random.value < 0.1f || explode) {
+        if (Random.value < 1.01f || explode) {
             Explode();
         } else {
             Collapse();
         }
         dead = true;
+
     }
 
     void Explode() {
-        Transform[] parts = gameObject.GetComponentsInChildren<Transform>();
-        foreach (Transform part in parts) {
-            part.SetParent(null);
-            part.gameObject.layer = LayerMask.NameToLayer("Ragdoll");
-            Rigidbody rb = part.gameObject.GetComponent<Rigidbody>();
-            if (!rb) {
-                rb = part.gameObject.AddComponent<Rigidbody>();
-            }
-            rb.useGravity = true;
-            rb.isKinematic = false;
-            part.gameObject.AddComponent<BoxCollider>();
-            Vector3 partForce = new Vector3(Random.value - 0.5f, 1, Random.value - 0.5f);
-            rb.AddForce(partForce * 10, ForceMode.Impulse);
-            CharacterJoint cJoint = part.GetComponent<CharacterJoint>();
-            if (cJoint)
-                Destroy(cJoint);
-        }
-        Destroy(gameObject);
+        if (dead)
+            return;
+        
+        ragdollControl.enableRagDoll();
+
+        DetachPart(transform.Find("Man:Hips/Man:Torso/Man:RightUpperArm"));
+        DetachPart(transform.Find("Man:Hips/Man:Torso/Man:LeftUpperArm"));
+        DetachPart(transform.Find("Man:Hips/Man:RightUpperLeg"));
+        DetachPart(transform.Find("Man:Hips/Man:LeftUpperLeg"));
     }
     public void Knockback(Vector3 origin, float damage) {
         TakeDamage(damage);
@@ -121,11 +117,43 @@ public class UnitControl : MonoBehaviour {
         Transform hips = transform.Find("Man:Hips");
         hips.gameObject.AddComponent<DeathTimer>();
         ragdollControl.enableRagDoll();
-        hips.SetParent(null);
-        Destroy(gameObject);
-
+        DropWeapons();
     }
 
+    void DropWeapons() {
+        BreakApart(leftHand);
+        BreakApart(rightHand);
+    }
+
+    void BreakApart(Transform parent) {
+        Transform[] parts = parent.GetComponentsInChildren<Transform>();
+        Rigidbody partRB;
+        Vector3 partForce;
+        foreach (Transform part in parts) {
+            DetachPart(part);
+        }       
+    }
+
+    void DetachPart(Transform part) {
+        part.SetParent(null);
+        if (!GetComponent<Collider>())
+            part.gameObject.AddComponent<BoxCollider>();
+        
+        Rigidbody partRB;
+        Vector3 partForce;
+
+        partRB = part.gameObject.GetComponent<Rigidbody>();
+        if (!partRB) 
+            partRB = part.gameObject.AddComponent<Rigidbody>();
+
+        CharacterJoint joint = part.gameObject.GetComponent<CharacterJoint>();
+        if (joint) 
+            Destroy(joint);
+        
+        partForce = new Vector3(Random.value - 0.5f, 1, Random.value - 0.5f);
+        partRB.AddForce(partForce * 10, ForceMode.Impulse); 
+        
+    }
 
     public bool IsDead() {
         return dead;
@@ -204,14 +232,11 @@ public class UnitControl : MonoBehaviour {
     }
 
     private void SetTeamColor() {
-        Transform torso = transform.Find("Man:Hips/Man:Torso");
-        Transform hips = transform.Find("Man:Hips");
+        Transform body = transform.Find("Man:Hips/Man:Body_Geo");
         if (gameObject.tag.Equals("RedTeam")) {
-            torso.GetComponent<Renderer>().material = redTeamMat;
-            hips.GetComponent<Renderer>().material = redTeamMat;
+            body.GetComponent<Renderer>().material = redTeamMat;
         } else {
-            torso.GetComponent<Renderer>().material = blueTeamMat;
-            hips.GetComponent<Renderer>().material = blueTeamMat;
+            body.GetComponent<Renderer>().material = blueTeamMat;
         }
     }
 

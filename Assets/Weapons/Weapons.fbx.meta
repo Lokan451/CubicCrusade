@@ -16,6 +16,7 @@ ModelImporter:
     100016: TowerShield
     100018: //RootNode
     100020: pCylinder1
+    100022: Bomb
     400000: Axe
     400002: Bow
     400004: LongSword
@@ -27,6 +28,7 @@ ModelImporter:
     400016: TowerShield
     400018: //RootNode
     400020: pCylinder1
+    400022: Bomb
     2300000: Axe
     2300002: Bow
     2300004: LongSword
@@ -36,6 +38,7 @@ ModelImporter:
     2300012: Spear
     2300014: TowerShield
     2300016: pCylinder1
+    2300018: Bomb
     3300000: Axe
     3300002: Bow
     3300004: LongSword
@@ -45,6 +48,7 @@ ModelImporter:
     3300012: Spear
     3300014: TowerShield
     3300016: pCylinder1
+    3300018: Bomb
     4300000: RoundShield
     4300002: ShortSword
     4300004: LongSword
@@ -54,6 +58,7 @@ ModelImporter:
     4300012: Bow
     4300014: Rifle
     4300016: pCylinder1
+    4300018: Bomb
     9500000: //RootNode
   materials:
     importMaterials: 1

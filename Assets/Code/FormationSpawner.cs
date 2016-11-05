@@ -20,7 +20,9 @@ public class FormationSpawner : MonoBehaviour {
     public GameObject grenadierPrefab;
     
     void Start() {
-        SpawnFormation(Formations.pikeman, new Vector3(0, 0, -40), "RedTeam");
+        SpawnFormation(Formations.pikeman, new Vector3(8, 0, -10), "RedTeam");
+        SpawnFormation(Formations.pikeman, new Vector3(16, 0, -10), "BlueTeam");
+
         //SpawnFormation(Formations.rifleMen, new Vector3(8, 0, 28), "BlueTeam");
 
     }

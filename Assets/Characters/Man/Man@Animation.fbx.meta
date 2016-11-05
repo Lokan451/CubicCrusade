@@ -23,6 +23,22 @@ ModelImporter:
     100030: Man:Attach_RightHand
     100032: Man:Attach_Shield
     100034: Weapons:Weapons:ShortSword
+    100036: Man:Body_Geo
+    100038: Man:Head_Skel
+    100040: Man:Hips_Skel
+    100042: Man:LeftArm_Geo
+    100044: Man:LeftLeg_Geo
+    100046: Man:LeftLowerArm_Skel
+    100048: Man:LeftLowerLeg_Skel
+    100050: Man:LeftUpperArm_Skel
+    100052: Man:LeftUpperLeg_Skel
+    100054: Man:RightArm_Geo
+    100056: Man:RightLeg_Geo
+    100058: Man:RightLowerArm_Skel
+    100060: Man:RightLowerLeg_Skel
+    100062: Man:RightUpperArm_Skel
+    100064: Man:RightUpperLeg_Skel
+    100066: Man:Torso_Skel
     400000: Man:Camera
     400002: Man:Head
     400004: Man:Hips
@@ -41,6 +57,22 @@ ModelImporter:
     400030: Man:Attach_RightHand
     400032: Man:Attach_Shield
     400034: Weapons:Weapons:ShortSword
+    400036: Man:Body_Geo
+    400038: Man:Head_Skel
+    400040: Man:Hips_Skel
+    400042: Man:LeftArm_Geo
+    400044: Man:LeftLeg_Geo
+    400046: Man:LeftLowerArm_Skel
+    400048: Man:LeftLowerLeg_Skel
+    400050: Man:LeftUpperArm_Skel
+    400052: Man:LeftUpperLeg_Skel
+    400054: Man:RightArm_Geo
+    400056: Man:RightLeg_Geo
+    400058: Man:RightLowerArm_Skel
+    400060: Man:RightLowerLeg_Skel
+    400062: Man:RightUpperArm_Skel
+    400064: Man:RightUpperLeg_Skel
+    400066: Man:Torso_Skel
     2300000: Man:Head
     2300002: Man:Hips
     2300004: Man:LeftLowerArm
@@ -79,6 +111,11 @@ ModelImporter:
     4300018: Man:LeftLowerArm
     4300020: Man:Head
     4300022: Weapons:Weapons:ShortSword
+    4300024: Man:RightLeg_Geo
+    4300026: Man:LeftLeg_Geo
+    4300028: Man:LeftArm_Geo
+    4300030: Man:RightArm_Geo
+    4300032: Man:Body_Geo
     7400000: Run
     7400002: Idle
     7400004: Attack
@@ -88,6 +125,11 @@ ModelImporter:
     7400012: ShootBow
     9500000: //RootNode
     11100000: //RootNode
+    13700000: Man:Body_Geo
+    13700002: Man:LeftArm_Geo
+    13700004: Man:LeftLeg_Geo
+    13700006: Man:RightArm_Geo
+    13700008: Man:RightLeg_Geo
   materials:
     importMaterials: 1
     materialName: 0
@@ -136,6 +178,8 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
+      - path: Man:Body_Geo
+        weight: 1
       - path: Man:Hips
         weight: 1
       - path: Man:Hips/Man:LeftUpperLeg
@@ -165,6 +209,14 @@ ModelImporter:
       - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm
         weight: 1
       - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm/Man:Attach_RightHand
+        weight: 1
+      - path: Man:LeftArm_Geo
+        weight: 1
+      - path: Man:LeftLeg_Geo
+        weight: 1
+      - path: Man:RightArm_Geo
+        weight: 1
+      - path: Man:RightLeg_Geo
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -196,6 +248,8 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
+      - path: Man:Body_Geo
+        weight: 1
       - path: Man:Hips
         weight: 1
       - path: Man:Hips/Man:LeftUpperLeg
@@ -225,6 +279,14 @@ ModelImporter:
       - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm
         weight: 1
       - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm/Man:Attach_RightHand
+        weight: 1
+      - path: Man:LeftArm_Geo
+        weight: 1
+      - path: Man:LeftLeg_Geo
+        weight: 1
+      - path: Man:RightArm_Geo
+        weight: 1
+      - path: Man:RightLeg_Geo
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -263,6 +325,8 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
+      - path: Man:Body_Geo
+        weight: 1
       - path: Man:Hips
         weight: 1
       - path: Man:Hips/Man:LeftUpperLeg
@@ -292,6 +356,14 @@ ModelImporter:
       - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm
         weight: 1
       - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm/Man:Attach_RightHand
+        weight: 1
+      - path: Man:LeftArm_Geo
+        weight: 1
+      - path: Man:LeftLeg_Geo
+        weight: 1
+      - path: Man:RightArm_Geo
+        weight: 1
+      - path: Man:RightLeg_Geo
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -323,6 +395,8 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
+      - path: Man:Body_Geo
+        weight: 1
       - path: Man:Hips
         weight: 1
       - path: Man:Hips/Man:LeftUpperLeg
@@ -352,6 +426,14 @@ ModelImporter:
       - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm
         weight: 1
       - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm/Man:Attach_RightHand
+        weight: 1
+      - path: Man:LeftArm_Geo
+        weight: 1
+      - path: Man:LeftLeg_Geo
+        weight: 1
+      - path: Man:RightArm_Geo
+        weight: 1
+      - path: Man:RightLeg_Geo
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -390,6 +472,8 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
+      - path: Man:Body_Geo
+        weight: 1
       - path: Man:Hips
         weight: 1
       - path: Man:Hips/Man:LeftUpperLeg
@@ -419,6 +503,14 @@ ModelImporter:
       - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm
         weight: 1
       - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm/Man:Attach_RightHand
+        weight: 1
+      - path: Man:LeftArm_Geo
+        weight: 1
+      - path: Man:LeftLeg_Geo
+        weight: 1
+      - path: Man:RightArm_Geo
+        weight: 1
+      - path: Man:RightLeg_Geo
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -457,6 +549,8 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
+      - path: Man:Body_Geo
+        weight: 1
       - path: Man:Hips
         weight: 1
       - path: Man:Hips/Man:LeftUpperLeg
@@ -486,6 +580,14 @@ ModelImporter:
       - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm
         weight: 1
       - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm/Man:Attach_RightHand
+        weight: 1
+      - path: Man:LeftArm_Geo
+        weight: 1
+      - path: Man:LeftLeg_Geo
+        weight: 1
+      - path: Man:RightArm_Geo
+        weight: 1
+      - path: Man:RightLeg_Geo
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -524,6 +626,8 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
+      - path: Man:Body_Geo
+        weight: 1
       - path: Man:Hips
         weight: 1
       - path: Man:Hips/Man:LeftUpperLeg
@@ -553,6 +657,14 @@ ModelImporter:
       - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm
         weight: 1
       - path: Man:Hips/Man:Torso/Man:RightUpperArm/Man:RightLowerArm/Man:Attach_RightHand
+        weight: 1
+      - path: Man:LeftArm_Geo
+        weight: 1
+      - path: Man:LeftLeg_Geo
+        weight: 1
+      - path: Man:RightArm_Geo
+        weight: 1
+      - path: Man:RightLeg_Geo
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
