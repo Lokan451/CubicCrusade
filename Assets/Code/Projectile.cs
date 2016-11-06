@@ -11,9 +11,9 @@ public class Projectile : MonoBehaviour {
     public bool explosive = false;
     public float blastRadius = 1.0f;
     public GameObject explosionEffect;
-
     float collisionDelay = 0.1f;
 	float lifeTime = 0.0f;
+
 
 	void Start () {
 		myCollision = GetComponent<Collider>();	
@@ -34,7 +34,8 @@ public class Projectile : MonoBehaviour {
 		if (!myCollision.enabled && lifeTime > collisionDelay) myCollision.enabled = true;
 		
 		if (inAir && rbody.velocity.sqrMagnitude > 0) transform.rotation = Quaternion.LookRotation(rbody.velocity);
-	}
+
+    }
 	
 	void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag.Equals("Projectile")) {

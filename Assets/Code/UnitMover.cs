@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class UnitMover : MonoBehaviour {
-
+    UnitAttack unitAttack;
     UnitControl unitControl;
     Animator animator;
     public float rateOfSpeed = 1.0f;
@@ -10,6 +10,7 @@ public class UnitMover : MonoBehaviour {
     Vector3 homePosition;
 
     void Start() {
+        unitAttack = GetComponent<UnitAttack>();
         unitControl = GetComponent<UnitControl>();
         animator = GetComponent<Animator>();
         animator.SetFloat("random", Random.value);
@@ -21,26 +22,26 @@ public class UnitMover : MonoBehaviour {
         if (unitControl.IsDead() || unitControl.IsStunned() || unitControl.IsAttacking()) {
             return;
         }
-
-
         if (unitControl.HasEnemy()) {
             Transform enemy = unitControl.GetCurrentEnemy().transform;
-            MoveTowardsTarget(enemy.position);
+            float minDist = Mathf.Max((unitAttack.attackRange / 2), 2);
+            if ((transform.position - enemy.position).sqrMagnitude > minDist) {
+                MoveTowardsTarget(enemy.position);
+            } else {
+                animator.SetBool("isRunning", false);
+            }
         } else {
             Vector3 goalPos = homePosition;
             goalPos.y = transform.position.y;
             if ((transform.position - goalPos).sqrMagnitude > 1) {
                 MoveTowardsTarget(goalPos);
-
             } else {
                 animator.SetBool("isRunning", false);
-
             }
         }
 
-
     }
-
+    
     void MoveTowardsTarget(Vector3 goalPos) {
         animator.SetBool("isRunning", true);
 

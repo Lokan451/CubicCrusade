@@ -7,12 +7,8 @@ public class FormationSpawner : MonoBehaviour {
     public GameObject[] unitTypes;
 
     void Start() {
-//        SpawnFormation(Formations.pikeman, new Vector3(8, 0, -10), "RedTeam");
-//        SpawnFormation(Formations.pikeman, new Vector3(-8, 0, -10), "RedTeam");
-//        SpawnFormation(Formations.rifleMen, new Vector3(0, 0, 40), "BlueTeam");
-//        SpawnFormation(Formations.pikeman, new Vector3(-8, 0, -18), "RedTeam");
-//        SpawnFormation(Formations.pikeman, new Vector3(-8, 0, -18), "RedTeam");
-//        SpawnFormation(Formations.grenadier, new Vector3(0, 0, 32), "BlueTeam");
+        //SpawnFormation(Formations.archer, new Vector3(0, 0, 40), "BlueTeam");
+        //SpawnFormation(Formations.swordsmen, new Vector3(0, 0, -62), "RedTeam");
     }
 
 

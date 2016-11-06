@@ -6,7 +6,7 @@ public class UnitControl : MonoBehaviour {
 
     UnitAttack unitAttack;
     UnitMover unitMover;
-    
+    Animator animator;
     public Material redTeamMat;
     public Material blueTeamMat;
     public float health = 1;
@@ -24,7 +24,7 @@ public class UnitControl : MonoBehaviour {
     RagDollControl ragdollControl;
 
     void Start() {
-
+        animator = GetComponent<Animator>();
         if (isBarricade) {
             return;
         }
@@ -47,6 +47,10 @@ public class UnitControl : MonoBehaviour {
         }
     }
 
+    public float DistanceToEnemy() {
+        float distance = (GetCurrentEnemy().transform.position - transform.position).sqrMagnitude;
+        return distance;
+    }
 
     void Update() {
         if (IsDead()) {
@@ -75,7 +79,9 @@ public class UnitControl : MonoBehaviour {
             Die();
         }
     }
-
+    public void GettingAttacked() {
+        animator.SetTrigger("defend");
+    }
     public Vector3 GetLeftHandPos() {
         return leftHand.position;
     }
@@ -98,7 +104,7 @@ public class UnitControl : MonoBehaviour {
 
     public void Die(bool explode) {
         GetComponent<Collider>().enabled = false;
-        if (Random.value < 1.1f || explode) {
+        if (Random.value < 0.2f || explode) {
             Explode();
         }
         else {

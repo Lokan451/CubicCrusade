@@ -41,6 +41,7 @@ public class UnitAttack : MonoBehaviour {
     virtual public void Attack() {
         animator.SetTrigger(attackType);
         cooldown = attackSpeed + Random.Range(0.0f, 1.0f);
+        unitControl.GetCurrentEnemy().GettingAttacked();
     }
 
     virtual public void FinishAttack() {
