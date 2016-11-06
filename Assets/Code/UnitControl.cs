@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class UnitControl : MonoBehaviour {
+
+    UnitAttack unitAttack;
+    UnitMover unitMover;
+    
     public Material redTeamMat;
     public Material blueTeamMat;
     public float health = 1;
@@ -10,6 +14,7 @@ public class UnitControl : MonoBehaviour {
     bool dead;
     float knockBackTimer = 0;
     bool isAttacking;
+    bool isWaiting;
 
     Transform torso;
     Transform rightHand;
@@ -19,6 +24,9 @@ public class UnitControl : MonoBehaviour {
     RagDollControl ragdollControl;
 
     void Start() {
+        unitAttack = GetComponent<UnitAttack>();
+        unitMover = GetComponent<UnitMover>();
+
         FindNewEnemy(true);
         Rigidbody rb = gameObject.AddComponent<Rigidbody>();
         rb.mass = 10;
@@ -28,19 +36,20 @@ public class UnitControl : MonoBehaviour {
         torso = transform.Find("Man:Hips/Man:Torso");
         rightHand = torso.Find("Man:RightUpperArm/Man:RightLowerArm/Man:Attach_RightHand");
         leftHand = torso.Find("Man:LeftUpperArm/Man:LeftLowerArm/Man:Attach_LeftHand");
+
+        if (isWaiting) {
+            rb.isKinematic = true;
+        }
     }
 
 
-    void Update () {
-
+    void Update() {
         if (IsDead()) {
             return;
         }
-
         if (currentEnemy && currentEnemy.IsDead()) {
             currentEnemy = null;
         }	
-
         if (knockBackTimer > 0) {
             knockBackTimer -= Time.deltaTime;
             if (knockBackTimer < 0) {
@@ -49,8 +58,11 @@ public class UnitControl : MonoBehaviour {
                 torso.parent.localPosition = Vector3.zero;
             }
         }
-	}
-
+        if (!isWaiting) {
+            unitAttack.ProcessAttack();
+            unitMover.ProcessMover();
+        }
+    }
 
     public void TakeDamage(float amount) {
         health -= amount;
@@ -78,12 +90,13 @@ public class UnitControl : MonoBehaviour {
     public void Die() {
         Die(false);
     }
-    
+
     public void Die(bool explode) {
         GetComponent<Collider>().enabled = false;
         if (Random.value < 0.1f || explode) {
             Explode();
-        } else {
+        }
+        else {
             Collapse();
         }
         dead = true;
@@ -101,6 +114,7 @@ public class UnitControl : MonoBehaviour {
         DetachPart(transform.Find("Man:Hips/Man:RightUpperLeg"));
         DetachPart(transform.Find("Man:Hips/Man:LeftUpperLeg"));
     }
+
     public void Knockback(Vector3 origin, float damage) {
         TakeDamage(damage);
         if (dead)
@@ -142,11 +156,11 @@ public class UnitControl : MonoBehaviour {
         Vector3 partForce;
 
         partRB = part.gameObject.GetComponent<Rigidbody>();
-        if (!partRB) 
+        if (!partRB)
             partRB = part.gameObject.AddComponent<Rigidbody>();
 
         CharacterJoint joint = part.gameObject.GetComponent<CharacterJoint>();
-        if (joint) 
+        if (joint)
             Destroy(joint);
         
         partForce = new Vector3(Random.value - 0.5f, 1, Random.value - 0.5f);
@@ -171,17 +185,19 @@ public class UnitControl : MonoBehaviour {
 
         if (gameObject.tag.Equals("RedTeam")) {
             enemyGameObjects = GameObject.FindGameObjectsWithTag("BlueTeam");
-        } else {
+        }
+        else {
             enemyGameObjects = GameObject.FindGameObjectsWithTag("RedTeam");
         }
 
         if (getNearby) {
             currentEnemy = GetNearbyEnemy(GetClosestEnemy(enemyGameObjects));
-        } else {
+        }
+        else {
             currentEnemy = GetClosestEnemy(enemyGameObjects);
         }
     }
-    
+
     UnitControl GetNearbyEnemy(UnitControl closest) {
         if (!closest)
             return null;
@@ -219,6 +235,7 @@ public class UnitControl : MonoBehaviour {
 
         return closest;
     }
+
     public bool HasEnemy() {
         if (currentEnemy)
             return true;
@@ -230,21 +247,40 @@ public class UnitControl : MonoBehaviour {
         return currentEnemy;
     }
 
+    public void SetAttackState(bool setting) {
+        isAttacking = setting;
+    }
+
     public bool IsAttacking() {
         return isAttacking;
     }
 
-    public void SetAttackState(bool setting) {
-        isAttacking = setting;
+    public void SetWaitingState(bool setting) {
+        isWaiting = setting;
+
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb) {
+            if (isWaiting) {
+                rb.isKinematic = true;
+            }
+            else {
+                rb.isKinematic = false;
+            }
+        }
+    }
+
+    public bool IsWaiting() {
+        return isWaiting;
     }
 
     private void SetTeamColor() {
         Renderer[] renderers = GetComponentsInChildren<Renderer>();
 
-        foreach(Renderer item in renderers) {
+        foreach (Renderer item in renderers) {
             if (gameObject.tag.Equals("RedTeam")) {
                 item.material = redTeamMat;
-            } else {
+            }
+            else {
                 item.material = blueTeamMat;
             }           
         }

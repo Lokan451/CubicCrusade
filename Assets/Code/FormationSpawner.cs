@@ -3,30 +3,15 @@ using System.Collections;
 
 public class FormationSpawner : MonoBehaviour {
 
-    
-    public GameObject peasentPrefab;
-    public GameObject hoplitePrefab;
-    public GameObject swordsmenPrefab;
-    public GameObject spearmenPrefab;
-    public GameObject knightPrefab;
-    public GameObject pikemanPrefab;
-    public GameObject giantPrefab;
-    public GameObject barbarianPrefab;
-    public GameObject berserkerPrefab;
-    public GameObject legionarePrefab;
-    public GameObject wizardPrefab;
-    public GameObject riflemanPrefab;
-    public GameObject archerPrefab;
-    public GameObject grenadierPrefab;
-    
-    void Start() {
-        SpawnFormation(Formations.pikeman, new Vector3(8, 0, -10), "RedTeam");
-        SpawnFormation(Formations.pikeman, new Vector3(-8, 0, -10), "RedTeam");
-        SpawnFormation(Formations.rifleMen, new Vector3(0, 0, 40), "BlueTeam");
-        SpawnFormation(Formations.pikeman, new Vector3(-8, 0, -18), "RedTeam");
-        SpawnFormation(Formations.pikeman, new Vector3(-8, 0, -18), "RedTeam");
-        SpawnFormation(Formations.grenadier, new Vector3(0, 0, 32), "BlueTeam");
+    public GameObject[] unitTypes;
 
+    void Start() {
+//        SpawnFormation(Formations.pikeman, new Vector3(8, 0, -10), "RedTeam");
+//        SpawnFormation(Formations.pikeman, new Vector3(-8, 0, -10), "RedTeam");
+//        SpawnFormation(Formations.rifleMen, new Vector3(0, 0, 40), "BlueTeam");
+//        SpawnFormation(Formations.pikeman, new Vector3(-8, 0, -18), "RedTeam");
+//        SpawnFormation(Formations.pikeman, new Vector3(-8, 0, -18), "RedTeam");
+//        SpawnFormation(Formations.grenadier, new Vector3(0, 0, 32), "BlueTeam");
     }
 
 
@@ -35,46 +20,46 @@ public class FormationSpawner : MonoBehaviour {
             GameObject typeUnit;
             switch (type[i]) {
                 case 1:
-                    typeUnit = peasentPrefab;
+                    typeUnit = GetPrefab("Rabble");
                     break;
                 case 2:
-                    typeUnit = hoplitePrefab;
+                    typeUnit = GetPrefab("Hoplite");
                     break;
                 case 3:
-                    typeUnit = swordsmenPrefab;
+                    typeUnit = GetPrefab("Swordsman");
                     break;
                 case 4:
-                    typeUnit = spearmenPrefab;
+                    typeUnit = GetPrefab("Spearman");
                     break;
                 case 5:
-                    typeUnit = knightPrefab;
+                    typeUnit = GetPrefab("Knight");
                     break;
                 case 6:
-                    typeUnit = pikemanPrefab;
+                    typeUnit = GetPrefab("Pikeman");
                     break;
                 case 7:
-                    typeUnit = giantPrefab;
+                    typeUnit = GetPrefab("Giant");
                     break;
                 case 8:
-                    typeUnit = barbarianPrefab;
+                    typeUnit = GetPrefab("Barbarian");
                     break;
                 case 9:
-                    typeUnit = berserkerPrefab;
+                    typeUnit = GetPrefab("Berserker");
                     break;
                 case 10:
-                    typeUnit = legionarePrefab;
+                    typeUnit = GetPrefab("Legionnaire");
                     break;
                 case 11:
-                    typeUnit = wizardPrefab;
+                    typeUnit = GetPrefab("Wizard");
                     break;
                 case 12:
-                    typeUnit = riflemanPrefab;
+                    typeUnit = GetPrefab("Rifleman");
                     break;
                 case 13:
-                    typeUnit = archerPrefab;
+                    typeUnit = GetPrefab("Archer");
                     break;
                 case 14:
-                    typeUnit = grenadierPrefab;
+                    typeUnit = GetPrefab("Grenadier");
                     break;
                 default:
                     typeUnit = null;
@@ -91,7 +76,18 @@ public class FormationSpawner : MonoBehaviour {
                 newUnit.tag = team;
             }
         }
+    }
 
+    public GameObject GetPrefab(string name) {
+        foreach (GameObject unitType in unitTypes) {
+            if (unitType.name.Equals(name))
+                return unitType;
+        }
+        return null;
+    }
+
+    public GameObject[] GetAllUnits() {
+        return unitTypes;
     }
 	
 }
