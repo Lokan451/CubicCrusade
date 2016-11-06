@@ -6,7 +6,7 @@ public class UnitControl : MonoBehaviour {
     public Material redTeamMat;
     public Material blueTeamMat;
     public float health = 1;
-
+    public bool isBarricade;
     bool dead;
     float knockBackTimer = 0;
     bool isAttacking;
@@ -19,6 +19,9 @@ public class UnitControl : MonoBehaviour {
     RagDollControl ragdollControl;
 
     void Start() {
+        if (isBarricade) {
+            return;
+        }
         FindNewEnemy(true);
         Rigidbody rb = gameObject.AddComponent<Rigidbody>();
         rb.mass = 10;
@@ -81,7 +84,7 @@ public class UnitControl : MonoBehaviour {
     
     public void Die(bool explode) {
         GetComponent<Collider>().enabled = false;
-        if (Random.value < 0.1f || explode) {
+        if (Random.value < 1.1f || explode) {
             Explode();
         } else {
             Collapse();
