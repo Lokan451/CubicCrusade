@@ -19,7 +19,7 @@ public class UnitAttack : MonoBehaviour {
     }
 
 
-    void Update() {
+    public void ProcessAttack() {
         if (unitControl.IsDead() || unitControl.IsAttacking()) {
             return;
         }

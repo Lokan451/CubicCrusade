@@ -12,12 +12,12 @@ public class UnitMover : MonoBehaviour {
     void Start() {
         unitControl = GetComponent<UnitControl>();
         animator = GetComponent<Animator>();
-        animator.SetFloat("runOffset", Random.value);
+        animator.SetFloat("random", Random.value);
         homePosition = transform.position;
     }
 
 
-    void Update() {
+    public void ProcessMover() {
         if (unitControl.IsDead() || unitControl.IsStunned() || unitControl.IsAttacking()) {
             return;
         }
