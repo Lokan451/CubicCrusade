@@ -1,6 +1,6 @@
 //Maya ASCII 2016 scene
 //Name: Carocel.ma
-//Last modified: Sat, Nov 05, 2016 04:57:39 PM
+//Last modified: Sat, Nov 05, 2016 05:56:11 PM
 //Codeset: UTF-8
 requires maya "2016";
 requires -nodeType "gameFbxExporter" "gameFbxExporter" "1.0";
@@ -17,8 +17,8 @@ fileInfo "osv" "Mac OS X 10.9.6";
 createNode transform -s -n "persp";
 	rename -uid "0D156927-4040-ED11-67A7-DA83EC4D7412";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -1548.5536388487278 285.28964356940145 -355.17411236655641 ;
-	setAttr ".r" -type "double3" -25.538352803929506 -2663.4000000001333 0 ;
+	setAttr ".t" -type "double3" -1773.7887200911323 82.447395073914322 -26.484414370127695 ;
+	setAttr ".r" -type "double3" -0.93835280393307219 -2613.0000000001187 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "8A082286-4C43-C576-31D9-7295C4F26C09";
 	setAttr -k off ".v" no;
