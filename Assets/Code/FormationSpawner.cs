@@ -6,6 +6,9 @@ public class FormationSpawner : MonoBehaviour {
 
     public GameObject[] unitTypes;
 
+    public GameObject cubeSparklePrefab;
+
+
     void Start() {
         //SpawnFormation(Formations.archer, new Vector3(0, 0, 40), "BlueTeam");
         //SpawnFormation(Formations.swordsmen, new Vector3(0, 0, -62), "RedTeam");
@@ -65,26 +68,45 @@ public class FormationSpawner : MonoBehaviour {
 
             if (typeUnit) {
                 float zPos = Mathf.Floor ((float)i / 8.0f);
-                float xPos = 15.0f * ((float)i / 8.0f - zPos);
+                float xPos = Mathf.Floor (8.0f * (((float)i / 8.0f) - zPos));
+
                 xPos -= 8.0f / 2.0f;
                 zPos -= 8.0f / 2.0f;
+
+                Debug.Log("SpawnPosition = " + xPos + ", " + zPos);
                 Vector3 startPos = new Vector3(xPos + playerCenter.x, playerCenter.y, zPos + playerCenter.z);
                 GameObject newUnit = Instantiate(typeUnit, startPos, Quaternion.identity) as GameObject;
+
+                Instantiate(cubeSparklePrefab, newUnit.transform.position, Quaternion.identity);
+
                 newUnit.tag = team;
             }
         }
     }
 
     public GameObject GetPrefab(string name) {
+        GameObject prefab = null;
         foreach (GameObject unitType in unitTypes) {
             if (unitType.name.Equals(name))
-                return unitType;
+                prefab = unitType;
         }
-        return null;
+        if (!prefab) {
+            Debug.Log(name + " is not a unit type");
+            return null;
+        }
+        return prefab;
     }
 
     public GameObject[] GetAllUnits() {
         return unitTypes;
+    }
+    public Formations.formation GetFormation() {
+        return Formations.rabble;
+    }
+
+    public Formations.formation[] GetAllFormations() {
+        return Formations.allFormations;
+
     }
 	
 }
