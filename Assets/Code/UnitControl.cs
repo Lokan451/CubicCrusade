@@ -153,10 +153,13 @@ public class UnitControl : MonoBehaviour {
     }
 
     void BreakApart(Transform parent) {
+        if (!parent) {
+            return;
+        }
         Transform[] parts = parent.GetComponentsInChildren<Transform>();
         foreach (Transform part in parts) {
             DetachPart(part);
-        }       
+        }
     }
 
     void DetachPart(Transform part) {
@@ -176,7 +179,7 @@ public class UnitControl : MonoBehaviour {
             Destroy(joint);
         
         partForce = new Vector3(Random.value - 0.5f, 1, Random.value - 0.5f);
-        partRB.AddForce(partForce * 10, ForceMode.Impulse); 
+        partRB.AddForce(partForce * 5, ForceMode.Impulse); 
         
     }
 

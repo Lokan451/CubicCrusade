@@ -10,8 +10,7 @@ public class FormationSpawner : MonoBehaviour {
 
 
     void Start() {
-        //SpawnFormation(Formations.archer, new Vector3(0, 0, 40), "BlueTeam");
-        //SpawnFormation(Formations.swordsmen, new Vector3(0, 0, -62), "RedTeam");
+
     }
 
 
