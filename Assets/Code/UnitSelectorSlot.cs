@@ -38,9 +38,9 @@ public class UnitSelectorSlot : MonoBehaviour {
         GameObject canvas = transform.Find("Canvas").gameObject;
         canvas.AddComponent<InputRepeater>().SetTarget(gameObject);
         nameText = transform.Find("Canvas/Name").GetComponent<Text>();
-        nameText.text = unitModel.name.ToUpper();
+        nameText.text = formation.name.ToUpper();
         costText = transform.Find("Canvas/Cost").GetComponent<Text>();
-        costText.text = unitControl.GetCost().ToString();
+        costText.text = formation.cost.ToString();
     }
 
 	void Start () {

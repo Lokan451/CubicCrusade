@@ -9,7 +9,7 @@ public class FormationSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     bool isHovering;
     float hoverTimer = 0.5f;
     float moveTimer = 0.0f;
-    float transitionSpeed = 0.5f;
+    float transitionSpeed = 0.25f;
 
     GameObject unitToSpawn;
     Formations.formation formationToSpawn;
@@ -18,7 +18,7 @@ public class FormationSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     FormationSpawner formationSpawner;
 
     Color onColor = Color.white;
-    Color offColor = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+    Color offColor = new Color(1.0f, 1.0f, 1.0f, 0.25f);
 
     Material mat;
 

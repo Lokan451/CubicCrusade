@@ -10,7 +10,6 @@ public class UnitControl : MonoBehaviour {
     public Material redTeamMat;
     public Material blueTeamMat;
     public float health = 1;
-    public int cost = 10;
     public bool isBarricade;
     bool dead;
     float knockBackTimer = 0;
@@ -300,8 +299,5 @@ public class UnitControl : MonoBehaviour {
             }           
         }
     }
-
-    public int GetCost() {
-        return cost;
-    }
+       
 }

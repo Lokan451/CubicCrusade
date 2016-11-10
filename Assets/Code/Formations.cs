@@ -7,10 +7,12 @@ public class Formations : MonoBehaviour {
         public string name;
         public int[] layout;
         public string icon;
-        public formation(string _name, int[] _layout, string _icon){
+        public int cost;
+        public formation(string _name, int[] _layout, string _icon, int _cost){
             this.name = _name;
             this.layout = _layout;
             this.icon = _icon;
+            this.cost = _cost;
         }
     }
 
@@ -28,7 +30,8 @@ public class Formations : MonoBehaviour {
             0, 1, 1, 1, 1, 1, 1, 0,
             0, 0, 0, 0, 0, 0, 0, 0
         },
-        "Rabble"
+        "Rabble",
+        15
     );
 
 
@@ -44,8 +47,8 @@ public class Formations : MonoBehaviour {
             0, 2, 2, 2, 2, 2, 2, 0,
             0, 0, 0, 0, 0, 0, 0, 0
         },
-        "Hoplite"
-
+        "Hoplite",
+        15
     );
 
     static public formation oneManArmy = new formation(
@@ -60,7 +63,8 @@ public class Formations : MonoBehaviour {
             0, 0, 0, 0, 0, 0, 0, 0, 
             0, 0, 0, 0, 0, 0, 0, 0 
         },
-        "Giant"
+        "Giant",
+        15
     );
 
     static public formation legionnaire = new formation(
@@ -75,7 +79,8 @@ public class Formations : MonoBehaviour {
             0, 10, 10, 10, 10, 10, 10, 0,
             0, 0, 0, 0, 0, 0, 0, 0 
         },
-        "Legionnaire"
+        "Legionnaire",
+        15
     );
 
     static public formation swordsmen = new formation(
@@ -90,7 +95,8 @@ public class Formations : MonoBehaviour {
             0, 3, 3, 3, 3, 3, 3, 0, 
             0, 0, 0, 0, 0, 0, 0, 0 
         },
-        "Swordsman"
+        "Swordsman",
+        15
     );
 
         
@@ -106,7 +112,8 @@ public class Formations : MonoBehaviour {
             0, 4, 4, 4, 4, 4, 4, 0,
             0, 0, 0, 0, 0, 0, 0, 0
         },
-        "Spearman"
+        "Spearman",
+        15
     );
 
     static public formation pikemen = new formation(
@@ -121,7 +128,8 @@ public class Formations : MonoBehaviour {
             0, 6, 6, 6, 6, 6, 6, 0, 
             0, 0, 0, 0, 0, 0, 0, 0, 
         },
-        "Pikeman"
+        "Pikeman",
+        15
     );
 
     static public formation wizards = new formation(
@@ -136,7 +144,8 @@ public class Formations : MonoBehaviour {
             0, 11, 11, 11, 11, 11, 11, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 
         },
-        "Wizard"
+        "Wizard",
+        15
     );
 
     static public formation riflemen = new formation(
@@ -151,7 +160,8 @@ public class Formations : MonoBehaviour {
             0, 12, 12, 12, 12, 12, 12, 0,
             0, 0, 0, 0, 0, 0, 0, 0,
         },
-        "Rifleman"
+        "Rifleman",
+        15
     );
 
     static public formation archers = new formation(
@@ -166,7 +176,8 @@ public class Formations : MonoBehaviour {
             0, 13, 13, 13, 13, 13, 13, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 
         },
-        "Archer"
+        "Archer",
+        15
     );
 
     static public formation grenadiers = new formation(
@@ -181,7 +192,8 @@ public class Formations : MonoBehaviour {
             0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 
         },
-        "Grenadier"
+        "Grenadier",
+        15
     );
 
 

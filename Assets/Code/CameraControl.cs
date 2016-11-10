@@ -11,14 +11,36 @@ public class CameraControl : MonoBehaviour {
 
     public float scrollSpeed = 1;
     private Transform cameraTransform;
+
+    public enum Mode { EditRedTeam, EditBlueTeam, Playing };
+
+    Mode cameraMode = Mode.Playing;
+    Transform redEditLoc;
+    Transform blueEditLoc;
+
     void Start () {
         cameraTransform = Camera.main.transform;
         cameraRotation = cameraTransform.rotation;
-
+        redEditLoc = GameObject.Find("RedSpawningGrid").transform;
+        blueEditLoc = GameObject.Find("BlueSpawningGrid").transform;
     }
-	
-	
+
 	void Update () {
+
+        if (cameraMode == Mode.EditRedTeam) {
+            cameraPosition = redEditLoc.position + new Vector3(15, 0, 0);
+            cameraRotation = redEditLoc.rotation;
+            return;
+        }
+
+
+        if (cameraMode == Mode.EditBlueTeam) {
+            cameraPosition = blueEditLoc.position + new Vector3(15, 0, 0);
+            cameraRotation = blueEditLoc.rotation;
+            return;
+        }
+
+
         if (Input.GetKey(KeyCode.W)) {
             cameraPosition.z += Time.deltaTime * scrollSpeed;
         }
@@ -44,5 +66,10 @@ public class CameraControl : MonoBehaviour {
         Vector3 zoomPosition = cameraTransform.localPosition;
         zoomPosition.z = Mathf.Clamp(zoomPosition.z + (scrollAmount * scrollSpeed), -100, -4);
         cameraTransform.localPosition = zoomPosition;   
+    }
+
+
+    public void SetCameraMode(Mode newMode) {
+        cameraMode = newMode;
     }
 }

@@ -38,10 +38,14 @@ public class UnitSelector : MonoBehaviour {
 
     Rigidbody dragging;
 
-
+    CameraControl cameraControl;
 
 
     void Start() {
+
+        cameraControl = Camera.main.transform.root.GetComponent<CameraControl>();
+        cameraControl.SetCameraMode(CameraControl.Mode.EditRedTeam);
+
         eventSystem = EventSystem.current;
         screenSize = new Vector2(Screen.width, Screen.height);
         uiScale = transform.parent.localScale.x;
@@ -70,20 +74,24 @@ public class UnitSelector : MonoBehaviour {
         int formationSize = 8;
         for (int x = 0; x < gridSize; x++) {
             for (int y = 0; y < 4; y++) {
-                float xPos = (x * formationSize) - gridSize / 2;
-                float yPos = (y * formationSize) - gridSize / 2;
-                Vector3 newPos = new Vector3(xPos, 0, yPos);
+                float xPos = (x * formationSize) - (formationSize * (gridSize - 1) / 2);
+                float yPos = (y * formationSize) - (formationSize * (gridSize - 1) / 2);
+                Vector3 newPos = new Vector3(xPos, 0.25f, yPos);
                 GameObject newFormationSlot = Instantiate(formationSlotPrefab, newPos, Quaternion.identity) as GameObject;
                 FormationSlot slotControl = newFormationSlot.GetComponent<FormationSlot>();
                 slotControl.SetUnitSelector(this);
             }
         }
+        listScrollGoal = markers.Count/4;
+
+        SetScreenWidth();
     }
 
     void FixedUpdate() {
         
 
         PlaceSlots();
+
 
         if (!dragTarget) {
             if (listDragOffset > 0)
@@ -95,11 +103,6 @@ public class UnitSelector : MonoBehaviour {
             dragging.AddForce((worldPoint - dragging.transform.position) * 100);
             dragging.AddTorque(Vector3.right * 0.5f);
         }
-
-        if (eventSystem.currentSelectedGameObject) {
-            Debug.Log(eventSystem.currentSelectedGameObject.name);
-        }
-
 
     }
 
@@ -145,20 +148,27 @@ public class UnitSelector : MonoBehaviour {
 
         if (pickupReady) {
             listDragOffset = Mathf.Clamp(listDragOffset + (dragAmount.y / screenSize.y) * (scrollSpeed * 0.25f), 0, 1);
+            pickupReady = Vector2.Distance(dragStartPos, dragPos) < dragThreshold * 4;
         }
         else {
             listDragOffset = 0;
         }
 
         float dragDeflection = Vector2.Dot((dragPos - dragStartPos).normalized, Vector2.up);
-        pickupReady = Vector2.Distance(dragStartPos, dragPos) < dragThreshold * 4;
+
         if (pickupReady && Vector2.Distance(dragStartPos, dragPos) > dragThreshold && dragDeflection > 0.7f) {
-            GameObject formationCube = Instantiate(formationCubePrefab, dragTarget.transform.position, Quaternion.identity) as GameObject;
+
+            Vector3 cubePos = dragTarget.transform.TransformPoint(Vector3.up);
+            GameObject formationCube = Instantiate(formationCubePrefab, cubePos, Quaternion.identity) as GameObject;
+
+            Color color1 = new Color(200.0f/255.0f, 60.0f/255.0f, 230.0f/255.0f);
+            Color color2 = new Color(70.0f/255.0f, 200.0f/255.0f, 225.0f/255.0f);
+            formationCube.GetComponent<Renderer>().material.color = Color.Lerp(color1, color2, Random.value);
             dragging = formationCube.GetComponent<Rigidbody>();
             dragging.isKinematic = false;
             dragging.useGravity = false;
             dragging.drag = 10;
-            dragging.AddForce(Vector3.up * 5, ForceMode.Impulse);
+            dragging.AddForce(dragTarget.transform.up * 5, ForceMode.Impulse);
             Vector3 torque = new Vector3(Random.value - 0.5f, Random.value - 0.5f, Random.value - 0.5f).normalized * 10;
             dragging.AddTorque(torque, ForceMode.Impulse);
 
@@ -191,5 +201,28 @@ public class UnitSelector : MonoBehaviour {
         dragTarget = null; 
         dragging = null;
         isDraggingList = false;
+    }
+
+    public void GoToRedTeam() {
+        cameraControl.SetCameraMode(CameraControl.Mode.EditRedTeam);
+
+    }
+
+    public void GoToBlueTeam() {
+        cameraControl.SetCameraMode(CameraControl.Mode.EditBlueTeam);
+    }
+
+    float SetScreenWidth() {
+        Transform uiGroup = transform.parent;
+        RectTransform uiCanvas = uiGroup.Find("SelectorCanvas").GetComponent<RectTransform>();;
+        Vector3 leftScreenPos = new Vector3(0.0f, Camera.main.pixelHeight/2, 1.25f);
+        Vector3 leftEdge = Camera.main.ScreenToWorldPoint(leftScreenPos);
+
+        Vector3 rightScreenPos = new Vector3(Camera.main.pixelWidth, Camera.main.pixelHeight/2, 1.25f);
+        Vector3 rightEdge = Camera.main.ScreenToWorldPoint(rightScreenPos);
+
+        uiCanvas.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Vector3.Distance(leftEdge, rightEdge) / uiGroup.localScale.x);
+
+        return Vector3.Distance(leftEdge, rightEdge) / uiGroup.localScale.x;
     }
 }
