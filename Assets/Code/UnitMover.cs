@@ -6,7 +6,6 @@ public class UnitMover : MonoBehaviour {
     UnitControl unitControl;
     Animator animator;
     public float rateOfSpeed = 1.0f;
-
     Vector3 homePosition;
 
     void Start() {
@@ -49,7 +48,6 @@ public class UnitMover : MonoBehaviour {
 
         Vector3 lookDir = (transform.position - goalPos).normalized;
         lookDir.y = 0;
-
         if (lookDir.sqrMagnitude < 1)
             return;
 

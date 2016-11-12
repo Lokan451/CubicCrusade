@@ -34,7 +34,9 @@ public class Projectile : MonoBehaviour {
 		if (!myCollision.enabled && lifeTime > collisionDelay) myCollision.enabled = true;
 		
 		if (inAir && rbody.velocity.sqrMagnitude > 0) transform.rotation = Quaternion.LookRotation(rbody.velocity);
-
+        if (lifeTime >= 10.0f) {
+            Destroy(gameObject);
+        }
     }
 	
 	void OnCollisionEnter(Collision collision) {

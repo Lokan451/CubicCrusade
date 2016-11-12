@@ -12,7 +12,7 @@ public class UnitAttack : MonoBehaviour {
     protected Animator animator;
 
 
-    void Start () {
+    virtual public void Start () {
         animator = GetComponent<Animator>();
         unitControl = GetComponent<UnitControl>();
         attackRange *= attackRange;

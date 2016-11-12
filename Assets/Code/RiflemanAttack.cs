@@ -3,22 +3,32 @@ using System.Collections;
 
 public class RiflemanAttack : UnitAttack {
     public GameObject rifleEffect;
+    public float minFiringRange = 4.0f;
+
+    public override void Start() {
+        base.Start();
+        minFiringRange *= minFiringRange;
+    }
 
     public override void Attack() {
         float distance = (unitControl.GetCurrentEnemy().transform.position - transform.position).sqrMagnitude;
-        if (distance < 4.0f) {
+        if (distance < minFiringRange) {
             animator.SetTrigger("thrust");
             cooldown = attackSpeed;
         } else {
             base.Attack();
         }
-
     }
 
     override public void FinishAttack() {
         base.FinishAttack();
         if (!unitControl.GetCurrentEnemy())
             return;
+        float distance = (unitControl.GetCurrentEnemy().transform.position - transform.position).sqrMagnitude;
+        if (distance < minFiringRange) {
+            Debug.Log(distance + "from enemy");
+            return;
+        }
         Vector3 enemyPos = unitControl.GetCurrentEnemy().GetTorsoPos();
         Vector3 handPos = unitControl.GetRightHandPos();
         Vector3 effectPos = Vector3.Lerp(handPos, enemyPos, 0.5f);
