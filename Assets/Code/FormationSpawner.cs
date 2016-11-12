@@ -14,7 +14,7 @@ public class FormationSpawner : MonoBehaviour {
     }
 
 
-    public void SpawnFormation(int[] type, Vector3 playerCenter, string team) {
+    public void SpawnFormation(int[] type, Vector3 centerPos, Quaternion centerRot, string team) {
         for (int i = 0; i < type.Length; i++) {
             GameObject typeUnit;
             switch (type[i]) {
@@ -72,9 +72,8 @@ public class FormationSpawner : MonoBehaviour {
                 xPos -= 8.0f / 2.0f;
                 zPos -= 8.0f / 2.0f;
 
-                Debug.Log("SpawnPosition = " + xPos + ", " + zPos);
-                Vector3 startPos = new Vector3(xPos + playerCenter.x, playerCenter.y, zPos + playerCenter.z);
-                GameObject newUnit = Instantiate(typeUnit, startPos, Quaternion.identity) as GameObject;
+                Vector3 startPos = new Vector3(xPos + centerPos.x, centerPos.y, zPos + centerPos.z);
+                GameObject newUnit = Instantiate(typeUnit, startPos, centerRot) as GameObject;
 
                 Instantiate(cubeSparklePrefab, newUnit.transform.position, Quaternion.identity);
 

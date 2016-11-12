@@ -10,13 +10,10 @@ public class UnitSelector : MonoBehaviour {
 
     FormationSpawner spawner;
 
-    float uiScale;
-
     public GameObject unitSlotPrefab;
     public GameObject formationSlotPrefab;
     public GameObject formationCubePrefab;
     public GameObject cubeSparklePrefab;
-
 
     float listScrollGoal;
     float listScrollOffset;
@@ -40,15 +37,31 @@ public class UnitSelector : MonoBehaviour {
 
     CameraControl cameraControl;
 
+    Vector3 homePos;
+    bool onScreen;
+
+    public enum Team {
+        Red,
+        Blue,
+        None}
+
+    ;
+
+    public Team team = Team.None;
+
+    public RectTransform teamButton;
+
+    public Transform spawnGridOrigin;
 
     void Start() {
+
+        homePos = transform.localPosition;
 
         cameraControl = Camera.main.transform.root.GetComponent<CameraControl>();
         cameraControl.SetCameraMode(CameraControl.Mode.EditRedTeam);
 
         eventSystem = EventSystem.current;
         screenSize = new Vector2(Screen.width, Screen.height);
-        uiScale = transform.parent.localScale.x;
         spawner = GameObject.Find("Spawner").GetComponent<FormationSpawner>();
 
         Formations.formation[] allFormations = Formations.allFormations;
@@ -76,22 +89,45 @@ public class UnitSelector : MonoBehaviour {
             for (int y = 0; y < 4; y++) {
                 float xPos = (x * formationSize) - (formationSize * (gridSize - 1) / 2);
                 float yPos = (y * formationSize) - (formationSize * (gridSize - 1) / 2);
-                Vector3 newPos = new Vector3(xPos, 0.25f, yPos);
-                GameObject newFormationSlot = Instantiate(formationSlotPrefab, newPos, Quaternion.identity) as GameObject;
+                Vector3 newPos = spawnGridOrigin.position + new Vector3(xPos, 0.25f, yPos);
+                Quaternion newRot = Quaternion.identity;
+                if (team == Team.Blue)
+                    newRot = Quaternion.AngleAxis(180, Vector3.up);
+                
+                GameObject newFormationSlot = Instantiate(formationSlotPrefab, newPos, newRot) as GameObject;
                 FormationSlot slotControl = newFormationSlot.GetComponent<FormationSlot>();
                 slotControl.SetUnitSelector(this);
             }
         }
-        listScrollGoal = markers.Count/4;
+        listScrollGoal = markers.Count / 4;
 
         SetScreenWidth();
     }
 
+    void Update() {
+        Vector3 selectorPos = Vector3.zero;
+        if (team == Team.Red) {
+            selectorPos = onScreen ? new Vector3(-11.25f, 1.50f, 1.75f) : new Vector3(-30.0f, 1.50f, 1.75f);
+        }
+        else {
+            selectorPos = onScreen ? new Vector3(-3.75f, 1.50f, 1.75f) : new Vector3(16.0f, 1.50f, 1.75f);
+        }
+        transform.localPosition = Vector3.Lerp(transform.localPosition, selectorPos, Time.deltaTime * 5);
+
+        Vector3 buttonOffset = teamButton.anchoredPosition;
+        if (team == Team.Red) {
+            buttonOffset.x = onScreen ? -3 : 3;
+        }
+        else {
+            buttonOffset.x = onScreen ? 3 : -3;
+        }
+        teamButton.anchoredPosition = Vector3.Lerp(teamButton.anchoredPosition, buttonOffset, Time.deltaTime * 5);
+
+    }
+
     void FixedUpdate() {
         
-
         PlaceSlots();
-
 
         if (!dragTarget) {
             if (listDragOffset > 0)
@@ -161,8 +197,8 @@ public class UnitSelector : MonoBehaviour {
             Vector3 cubePos = dragTarget.transform.TransformPoint(Vector3.up);
             GameObject formationCube = Instantiate(formationCubePrefab, cubePos, Quaternion.identity) as GameObject;
 
-            Color color1 = new Color(200.0f/255.0f, 60.0f/255.0f, 230.0f/255.0f);
-            Color color2 = new Color(70.0f/255.0f, 200.0f/255.0f, 225.0f/255.0f);
+            Color color1 = new Color(200.0f / 255.0f, 60.0f / 255.0f, 230.0f / 255.0f);
+            Color color2 = new Color(70.0f / 255.0f, 200.0f / 255.0f, 225.0f / 255.0f);
             formationCube.GetComponent<Renderer>().material.color = Color.Lerp(color1, color2, Random.value);
             dragging = formationCube.GetComponent<Rigidbody>();
             dragging.isKinematic = false;
@@ -187,12 +223,14 @@ public class UnitSelector : MonoBehaviour {
             if (dragging) {
                 if (slot) { 
                     slot.HandoffUnit(dragging.gameObject, dragTarget.GetFormation());
-                } else {
+                }
+                else {
                     Instantiate(cubeSparklePrefab, dragging.transform.position, Quaternion.identity);
                     Destroy(dragging.gameObject);
                 }
             }
-        } else {
+        }
+        else {
             if (dragging) {
                 Instantiate(cubeSparklePrefab, dragging.transform.position, Quaternion.identity);
                 Destroy(dragging.gameObject);
@@ -203,22 +241,18 @@ public class UnitSelector : MonoBehaviour {
         isDraggingList = false;
     }
 
-    public void GoToRedTeam() {
-        cameraControl.SetCameraMode(CameraControl.Mode.EditRedTeam);
-
-    }
-
-    public void GoToBlueTeam() {
-        cameraControl.SetCameraMode(CameraControl.Mode.EditBlueTeam);
+    public void SetSelected(bool setting) {
+        onScreen = setting;
     }
 
     float SetScreenWidth() {
         Transform uiGroup = transform.parent;
-        RectTransform uiCanvas = uiGroup.Find("SelectorCanvas").GetComponent<RectTransform>();;
-        Vector3 leftScreenPos = new Vector3(0.0f, Camera.main.pixelHeight/2, 1.25f);
+        RectTransform uiCanvas = uiGroup.Find("SelectorCanvas").GetComponent<RectTransform>();
+        ;
+        Vector3 leftScreenPos = new Vector3(0.0f, Camera.main.pixelHeight / 2, 1.25f);
         Vector3 leftEdge = Camera.main.ScreenToWorldPoint(leftScreenPos);
 
-        Vector3 rightScreenPos = new Vector3(Camera.main.pixelWidth, Camera.main.pixelHeight/2, 1.25f);
+        Vector3 rightScreenPos = new Vector3(Camera.main.pixelWidth, Camera.main.pixelHeight / 2, 1.25f);
         Vector3 rightEdge = Camera.main.ScreenToWorldPoint(rightScreenPos);
 
         uiCanvas.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Vector3.Distance(leftEdge, rightEdge) / uiGroup.localScale.x);

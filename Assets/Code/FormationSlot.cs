@@ -46,7 +46,10 @@ public class FormationSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             float amount = Mathf.SmoothStep(0, 1, moveTimer);
             unitToSpawn.transform.position = Vector3.Lerp(unitStartPos, transform.position, amount);
             if (moveTimer > 1.0f) {
-                formationSpawner.SpawnFormation(formationToSpawn.layout, transform.position, "BlueTeam");
+                string team = "RedTeam";
+                if (selector.team == UnitSelector.Team.Blue)
+                    team = "BlueTeam";
+                formationSpawner.SpawnFormation(formationToSpawn.layout, transform.position, transform.rotation, team);
                 Destroy(unitToSpawn);
             }
         }

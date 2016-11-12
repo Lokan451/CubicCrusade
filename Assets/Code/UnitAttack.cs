@@ -20,7 +20,7 @@ public class UnitAttack : MonoBehaviour {
 
 
     public void ProcessAttack() {
-        if (unitControl.IsDead() || unitControl.IsAttacking()) {
+        if (unitControl.IsDead() || unitControl.IsAttacking() || unitControl.IsWaiting()) {
             return;
         }
         if (cooldown > 0) {
